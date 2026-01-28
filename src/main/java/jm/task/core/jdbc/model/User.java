@@ -1,10 +1,13 @@
 package jm.task.core.jdbc.model;
 
+import lombok.Builder;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table
+@Builder
 public class User {
     @Id
     private Long id;
@@ -18,8 +21,11 @@ public class User {
     @Column
     private Byte age;
 
-    public User() {
-
+    public User(Long id, String name, String lastName, Byte age) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
     }
 
     public User(String name, String lastName, Byte age) {
@@ -58,5 +64,15 @@ public class User {
 
     public void setAge(Byte age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
