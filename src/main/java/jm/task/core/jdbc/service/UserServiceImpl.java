@@ -11,7 +11,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
 
-    public UserServiceImpl() throws SQLException {
+    public UserServiceImpl() {
         this.userDao = new UserDaoHibernateImpl();
     }
 
